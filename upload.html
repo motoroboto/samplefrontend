@@ -37,7 +37,8 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="btn btn-secondary" href="about.html">About</a></li>
                     <li class="nav-item"><a class="btn btn-secondary" href="documentation.html">Documentation</a></li>
-                    <li class="nav-item"><a class="btn btn-primary" href="signin.html">Sign In</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="search.html">Search</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="index.html">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -46,10 +47,6 @@
     <header class="masthead">
         <div class="container d-flex h-100 align-items-center">
             <div class="mx-auto text-center">
-                <h2 class="text-white-50 mx-auto mt-1 mb-5">At ASGM-WFU, we are using novel machine learning algorithms
-                    and cloud-native automation in order to create a robust
-                    ecosystem for collecting, organizing, and monitoring GIS data in environmentally critical areas.
-                </h2>
                 <div class="container">
                     <div class="row ">
                         <div class="col-lg-12 mx-auto">
@@ -63,75 +60,72 @@
                                                         <h1>Upload A Video</h1>
 
                                                         <div v-if="!video">
-                                                            <h2>Select an video</h2>
+
                                                             <input type="file" @change="onFileChange">
                                                         </div>
                                                         <div v-else>
-                                                            <img :src="video" />
-                                                            <button v-if="!uploadURL" @click="removevideo">Remove
+                                                            <video :src="video"></video><br>
+                                                            <button class="btn btn-primary" v-if="!uploadURL"
+                                                                @click="removevideo">Remove
                                                                 video</button>
-                                                            <button v-if="!uploadURL" @click="uploadvideo">Upload
+                                                            <button class="btn btn-primary" v-if="!uploadURL"
+                                                                @click="uploadvideo">Upload
                                                                 video</button>
-                                                        </div>
-                                                        <h2 v-if="uploadURL">Success! video uploaded to bucket.</h2>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
 
-                                                        <div class="form-group"> <label for="form_name">Start
-                                                                Date</label> <input id="form_name" type="date"
-                                                                name="name" class="form-control"
-                                                                data-error="Start Date is required.">
+                                                            <h2 v-if="uploadURL">Success! video uploaded to bucket.</h2>
+
+
+                                                            <div class="row" v-if="!uploadURL">
+                                                                <div class="col-md-6">
+
+                                                                    <div class="form-group"> <label
+                                                                            for="form_name">Start
+                                                                            Date</label> <input id="form_name"
+                                                                            type="date" name="name" class="form-control"
+                                                                            data-error="Start Date is required.">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group"> <label
+                                                                            for="form_lastname">Region</label>
+                                                                        <input id="form_lastname" type="text"
+                                                                            name="surname" class="form-control"
+                                                                            data-error="Region is required.">
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group"> <label for="form_email">End
+                                                                            Date</label> <input id="form_email"
+                                                                            type="date" name="email"
+                                                                            class="form-control"
+                                                                            data-error="End Date is required.">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="col-md-6">
+                                                                    <div class="form-group"> <label for="form_need">What
+                                                                            Kind of
+                                                                            Videos?</label>
+                                                                        <select id="form_need" name="need"
+                                                                            class="form-control"
+                                                                            data-error="Video Criteria.">
+                                                                            <option value="" selected disabled>--Video
+                                                                                Criteria--
+                                                                            </option>
+                                                                            <option>Known Mine</option>
+                                                                            <option>Deforestation</option>
+                                                                            <option>Unsorted</option>
+                                                                            <option>Questionable Data</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                            <div class="row">
+                                                            </div>
                                                         </div>
                                                     </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group"> <label
-                                                                for="form_lastname">Region</label>
-                                                            <input id="form_lastname" type="text" name="surname"
-                                                                class="form-control" data-error="Region is required.">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-6">
-                                                        <div class="form-group"> <label for="form_email">End
-                                                                Date</label> <input id="form_email" type="date"
-                                                                name="email" class="form-control"
-                                                                data-error="End Date is required.">
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-6">
-                                                        <div class="form-group"> <label for="form_need">What Kind of
-                                                                Videos?</label>
-                                                            <select id="form_need" name="need" class="form-control"
-                                                                data-error="Video Criteria.">
-                                                                <option value="" selected disabled>--Video Criteria--
-                                                                </option>
-                                                                <option>Known Mine</option>
-                                                                <option>Deforestation</option>
-                                                                <option>Unsorted</option>
-                                                                <option>Questionable Data</option>
-                                                            </select>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="row">
-                                                    <div class="col-md-12">
-                                                        <div class="form-group"> <label for="form_message">Additonal
-                                                                Details</label>
-                                                            <textarea id="form_message" name="message"
-                                                                class="form-control"
-                                                                placeholder="Write your message here." rows="4"
-                                                                data-error="Please, leave us a message."></textarea>
-                                                        </div>
-                                                    </div>
-                                                    <div class="col-md-12"> <input type="submit"
-                                                            class="btn btn-primary btn-send pt-2 btn-block "
-                                                            value="Search">
-                                                    </div>
-                                                </div>
-                                            </div>
+                                        </form>
                                         </form>
                                     </div>
                                 </div>
@@ -141,8 +135,6 @@
                 </div>
             </div>
     </header>
-    <!-- About-->
-
     <!-- Footer-->
     <footer class="footer bg-black small text-center text-white-50">
         <ul class="list-inline mb-0">
@@ -196,7 +188,7 @@
                     reader.onload = (e) => {
                         console.log('length: ', e.target.result.includes('data:video'))
                         if (!e.target.result.includes('data:video')) {
-                            return alert('Wrong file type - JPG only.')
+                            return alert('Wrong file type - MP4 only.')
                         }
                         if (e.target.result.length > MAX_VIDEO_SIZE) {
                             return alert('video is loo large.')

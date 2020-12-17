@@ -37,7 +37,8 @@
                 <ul class="navbar-nav ml-auto">
                     <li class="nav-item"><a class="btn btn-secondary" href="about.html">About</a></li>
                     <li class="nav-item"><a class="btn btn-secondary" href="documentation.html">Documentation</a></li>
-                    <li class="nav-item"><a class="btn btn-primary" href="signin.html">Sign In</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="upload.html">Upload</a></li>
+                    <li class="nav-item"><a class="btn btn-primary" href="index.html">Logout</a></li>
                 </ul>
             </div>
         </div>
@@ -46,9 +47,7 @@
     <header class="masthead">
         <div class="container d-flex h-100 align-items-center">
             <div class="mx-auto text-center">
-                <h2 class="text-white-50 mx-auto mt-1 mb-5">At ASGM-WFU, we are using novel machine learning algorithms
-                    and cloud-native automation in order to create a robust
-                    ecosystem for collecting, organizing, and monitoring GIS data in environmentally critical areas.
+                <h2 class="text-white-50 mx-auto mt-1 mb-5">THIS PAGE ISN'T READY YET
                 </h2>
                 <div class="container">
                     <div class="row ">
@@ -59,22 +58,9 @@
                                         <form id="contact-form" role="form">
                                             <div class="controls">
                                                 <div class="row">
-                                                    <div id="app">
-                                                        <h1>Upload A Video</h1>
 
-                                                        <div v-if="!video">
-                                                            <h2>Select an video</h2>
-                                                            <input type="file" @change="onFileChange">
-                                                        </div>
-                                                        <div v-else>
-                                                            <img :src="video" />
-                                                            <button v-if="!uploadURL" @click="removevideo">Remove
-                                                                video</button>
-                                                            <button v-if="!uploadURL" @click="uploadvideo">Upload
-                                                                video</button>
-                                                        </div>
-                                                        <h2 v-if="uploadURL">Success! video uploaded to bucket.</h2>
-                                                    </div>
+                                                    <h1>Search Video</h1>
+
                                                 </div>
                                                 <div class="row">
                                                     <div class="col-md-6">
@@ -141,8 +127,6 @@
                 </div>
             </div>
     </header>
-    <!-- About-->
-
     <!-- Footer-->
     <footer class="footer bg-black small text-center text-white-50">
         <ul class="list-inline mb-0">
