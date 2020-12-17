@@ -78,32 +78,29 @@
                                                             <div class="row" v-if="!uploadURL">
                                                                 <div class="col-md-6">
 
-                                                                    <div class="form-group"> <label
-                                                                            for="form_name">Start
+                                                                    <div class="form-group"> <label for="form_name">
                                                                             Date</label> <input id="form_name"
-                                                                            type="date" name="name" class="form-control"
+                                                                            type="date" name="date" class="form-control"
                                                                             data-error="Start Date is required.">
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-md-6">
                                                                     <div class="form-group"> <label
-                                                                            for="form_lastname">Region</label>
-                                                                        <input id="form_lastname" type="text"
-                                                                            name="surname" class="form-control"
-                                                                            data-error="Region is required.">
+                                                                            for="form_need">Region</label>
+                                                                        <select id="form_need" name="need"
+                                                                            class="form-control" data-error="Region.">
+                                                                            <option value="" selected disabled>
+                                                                                --Region--
+                                                                            </option>
+                                                                            <option>Manu</option>
+                                                                            <option>Tambopata</option>
+                                                                            <option>Iquitos</option>
+                                                                        </select>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div class="row">
-                                                                <div class="col-md-6">
-                                                                    <div class="form-group"> <label for="form_email">End
-                                                                            Date</label> <input id="form_email"
-                                                                            type="date" name="email"
-                                                                            class="form-control"
-                                                                            data-error="End Date is required.">
-                                                                    </div>
-                                                                </div>
-                                                                <div class="col-md-6">
+                                                                <div class="col-md-12">
                                                                     <div class="form-group"> <label for="form_need">What
                                                                             Kind of
                                                                             Videos?</label>
@@ -162,7 +159,7 @@
     <!-- Third party plugin JS-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
     <!-- Core theme JS-->
-    <script src="js/scripts.js"></script>
+    <script src="lib/js/scripts.js"></script>
     <script>
         const MAX_VIDEO_SIZE = 10000000000
 
